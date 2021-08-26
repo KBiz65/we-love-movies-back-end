@@ -63,7 +63,7 @@ describe("Movie Routes", () => {
       const response = await request(app).get(`/movies/${previous.movie_id}`);
 
       expect(response.body.error).toBeUndefined();
-      expect(response.body.data).toEqual(previous);
+      expect(response.body.data).toEqual(JSON.parse(JSON.stringify(previous)));
     });
 
     test("/theaters returns the theaters for the specified movie_id", async () => {
