@@ -11,7 +11,12 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-app.use("/", moviesRouter);
+app.get("/", (req, res) => {
+  return res.status(200).json({
+    msg: "Up and at em!",
+  });
+});
+
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
 app.use("/reviews", reviewsRouter);
